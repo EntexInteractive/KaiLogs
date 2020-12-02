@@ -8,12 +8,24 @@ exports.createLog = function (path) {
     create.end();
 }
 
+exports.loadLog = function (path) {
+    filePath = path;
+
+    if(!fs.existsSync(filePath + "/latest.log")) {
+
+        console.log(`[${GetTime()}] [KaiLogs/WARN]: No log found. Creating a new one.`)
+
+        var create = fs.createWriteStream(filePath + "/latest.log");
+        create.end();
+    }
+}
+
 exports.log = function (message, where, type) {
     if(message == null || message == undefined) {
         throw new Error("[NO_MESSAGE]: message cannot be null");
     }
     if(filePath == null || filePath == undefined) {
-        throw new Error("[NO_ACTIVE_LOG]: log file not created")
+        throw new Error("[NO_ACTIVE_LOG]: log file not found")
     }
     if(type == undefined) {
         type = "DEBUG";
@@ -48,7 +60,9 @@ exports.write = function (message, where, type) {
 }
 
 exports.save = function () {
-    console.log("save")
+    if(!fs.existsSync(filePath + "/" + GetDate())) {
+        console.log(`[${GetTime()}] [KaiLogs/WARN]: A log already exists with that name. Overwrite?`)
+    }
     fs.renameSync(filePath + "/latest.log", filePath + "/" + GetDate() + ".log");
 }
 

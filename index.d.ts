@@ -6,6 +6,15 @@ declare namespace KaiLogs {
         path: string
     )
 
+    export function loadLog(
+        /**
+         * Loads the latest log in the specified path.
+         * 
+         * If file doesn't exist it will create a new one.
+         */
+        path: string
+    )
+
     export function log(
         /**
          * Prints to the console and sends the line to be logged.
