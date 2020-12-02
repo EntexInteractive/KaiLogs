@@ -1,0 +1,27 @@
+{
+  "name": "kailogs",
+  "version": "0.1.0",
+  "description": "Logging library for Kai",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "theguitarleader",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheGuitarleader/KaiLogs.git"
+  },
+  "keywords": [
+    "logging"
+  ],
+  "bugs": {
+    "url": "https://github.com/TheGuitarleader/KaiLogs/issues"
+  },
+  "homepage": "https://github.com/TheGuitarleader/KaiLogs#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}
