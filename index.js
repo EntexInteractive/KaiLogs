@@ -22,8 +22,6 @@ exports.log = function (message, where, type) {
         where = "main";
     }
 
-    console.log(filePath);
-
     var logMessage = `[${GetTime()}] [${where}/${type}]: ${message}`;
     console.log(logMessage);
 
