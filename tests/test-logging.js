@@ -1,0 +1,1 @@
+const KaiLog = require('../index.js');
