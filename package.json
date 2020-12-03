@@ -1,7 +1,7 @@
 {
   "name": "kailogs",
-  "version": "0.1.3",
-  "description": "Logging library for KaiBot Discord Applications",
+  "version": "1.0.0",
+  "description": "Logging library for Discord Applications",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -15,7 +15,8 @@
   },
   "keywords": [
     "kai",
-    "logging"
+    "logging",
+    "discord"
   ],
   "author": "theguitarleader",
   "license": "ISC",
