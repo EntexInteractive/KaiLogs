@@ -60,7 +60,7 @@ exports.write = function (message, where, type) {
 }
 
 exports.save = function () {
-    if(!fs.existsSync(filePath + "/" + GetDate())) {
+    if(fs.existsSync(filePath + "/" + GetDate())) {
         console.log(`[${GetTime()}] [KaiLogs/WARN]: A log already exists with that name. Overwrite?`)
     }
     fs.renameSync(filePath + "/latest.log", filePath + "/" + GetDate() + ".log");
