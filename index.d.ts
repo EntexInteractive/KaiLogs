@@ -60,10 +60,14 @@ declare namespace KaiLogs {
     )
 
     /**
-     * Saves the loaded log as 'YYYY-MM-DD.log'.
-     * @example KaiLogs.save()
+     * Saves the loaded log.
+     * @param fileName Name of the file.
+     * @example KaiLogs.save() saves as 'YYYY-MM-DD.log'
+     * @example KaiLogs.save('Restart') saves as 'Restart-YYYY-MM-DD.log'
      */
-    export function save()
+    export function save(
+        fileName?: string
+    )
 
     /**
      * Prints to the console and logs as a warning.

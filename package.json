@@ -1,6 +1,6 @@
 {
   "name": "kailogs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Logging library for Discord Applications",
   "main": "index.js",
   "directories": {

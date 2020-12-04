@@ -46,7 +46,7 @@ exports.deleteLog = function (path) {
         fs.unlinkSync(path);        
     }
     else {
-        console.log(`[${GetTime()}] [KaiLogs/WARN]: File not found`);
+        console.log(`[${GetTime()}] [KaiLogs/WARN]: File not found.`);
     }
 }
 
@@ -71,27 +71,6 @@ exports.error = function (message, where) {
     })
 }
 
-// exports.guild = function (message, server, where) {
-//     if(message == null || message == undefined) {
-//         throw new Error("[NO_MESSAGE]: message cannot be null");
-//     }
-//     if(filePath == null || filePath == undefined) {
-//         throw new Error("[NO_ACTIVE_LOG]: log file not found")
-//     }
-//     if(where == undefined) {
-//         where = "main";
-//     }
-
-//     var logMessage = `[${GetTime()}] [${where}/INFO] [Server: ${server}] ${message}`;
-//     console.log(logMessage);
-
-//     fs.appendFile(filePath + "/latest.log", logMessage + "\n", function(err) {
-//         if(err) {
-//             throw new Error(err);
-//         }
-//     })
-// }
-
 exports.log = function (message, where) {
     if(message == null || message == undefined) {
         throw new Error("[NO_MESSAGE]: message cannot be null");
@@ -113,33 +92,30 @@ exports.log = function (message, where) {
     })
 }
 
-exports.save = function () {
-    if(fs.existsSync(filePath + "/" + GetDate())) {
-        console.log(`[${GetTime()}] [KaiLogs/WARN]: A log already exists with that name. Overwrite?`)
+exports.save = function (name) {
+    if(name == undefined)
+    {
+        if(fs.existsSync(filePath + "/" + GetDate() + ".log")) {
+            console.log(`[${GetTime()}] [KaiLogs/WARN]: Log file not saved. A log already exists with that name.`);
+        }
+        else
+        {
+            fs.renameSync(filePath + "/latest.log", filePath + "/" + GetDate() + ".log");
+            console.log(`[${GetTime()}] [KaiLogs/SAVE]: Saved the log as '${GetDate()}.log'`);
+        }
     }
-    fs.renameSync(filePath + "/latest.log", filePath + "/" + GetDate() + ".log");
+    else if(name != undefined)
+    {
+        if(fs.existsSync(filePath + "/" + name + "-" + GetDate() + ".log")) {
+            console.log(`[${GetTime()}] [KaiLogs/WARN]: Log file not saved. A log already exists with that name.`);
+        }
+        else
+        {
+            fs.renameSync(filePath + "/latest.log", filePath + "/" + name + "-" + GetDate() + ".log");
+            console.log(`[${GetTime()}] [KaiLogs/SAVE]: Saved the log as '${name}-${GetDate()}.log'`);
+        }
+    }
 }
-
-// exports.user = function (message, user, where) {
-//     if(message == null || message == undefined) {
-//         throw new Error("[NO_MESSAGE]: message cannot be null");
-//     }
-//     if(filePath == null || filePath == undefined) {
-//         throw new Error("[NO_ACTIVE_LOG]: log file not found")
-//     }
-//     if(where == undefined) {
-//         where = "main";
-//     }
-
-//     var logMessage = `[${GetTime()}] [${where}/INFO] [User: ${user}] ${message}`;
-//     console.log(logMessage);
-
-    // fs.appendFile(), logMessage + "\n", function(err) {
-    //     if(err) {
-    //         throw new Error(err);
-    //     }
-    // })
-// }
 
 exports.warn = function (message, where) {
     if(message == null || message == undefined) {
