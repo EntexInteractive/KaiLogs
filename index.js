@@ -160,7 +160,8 @@ exports.overwrite = function() {
 function GetDate()
 {
     var today = new Date();
-    var month = ("0" + today.getMonth()).slice(-2);
+    var wrongMonth = ("0" + today.getMonth()).slice(-2);
+    var month = parseInt(wrongMonth) + 1;
     var day = ("0" + today.getDate()).slice(-2);
     var year = today.getFullYear();
     return year + "-" + month + "-" + day;
