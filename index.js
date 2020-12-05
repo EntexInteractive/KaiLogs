@@ -153,14 +153,9 @@ exports.write = function (message, where, type) {
     console.log(logMessage);
 }
 
-// function GetDate()
-// {
-//     var today = new Date();
-//     var month = today.getMonth() + 1;
-//     var day = today.getDate();
-//     var year = today.getFullYear();
-//     return year + "-" + month + "-" + day;
-// }
+exports.overwrite = function() {
+    fs.renameSync(filePath + "/latest.log", filePath + "/" + GetDate() + ".log");
+}
 
 function GetDate()
 {

@@ -25,7 +25,7 @@ declare namespace KaiLogs {
      */
     export function debug(
         message: string,
-        where?: "main" | "client" | "command" | "database" | "event" | "function"
+        where?: "main" | "client" | "command" | "database" | "event" | "function" | "automod"
     )
 
     /**
@@ -45,7 +45,7 @@ declare namespace KaiLogs {
      */
     export function error(
         message: string,
-        where?: "main" | "client" | "command" | "database" | "event" | "function"
+        where?: "main" | "client" | "command" | "database" | "event" | "function" | "automod"
     )
 
     /**
@@ -56,7 +56,7 @@ declare namespace KaiLogs {
      */
     export function log(
         message: string,
-        where?: "main" | "client" | "command" | "database" | "event" | "function"
+        where?: "main" | "client" | "command" | "database" | "event" | "function" | "automod"
     )
 
     /**
@@ -77,7 +77,7 @@ declare namespace KaiLogs {
      */
     export function warn(
         message: string,
-        where?: "main" | "client" | "command" | "database" | "event" | "function"
+        where?: "main" | "client" | "command" | "database" | "event" | "function" | "automod"
     )
 
     /**
@@ -85,12 +85,19 @@ declare namespace KaiLogs {
      * @param message A message that gets printed.
      * @param where Where the debug took place. Default: 'main'
      * @param type The type of log. Default: 'DEBUG'
+     * @example KaiLogs.write("Don't log this!", "main", "INFO")
      */
     export function write(
         message: string,
-        where?: "main" | "client" | "command" | "database" | "event" | "function",
+        where?: "main" | "client" | "command" | "database" | "event" | "function" | "automod",
         type?: "DEBUG" | "INFO" | "WARN" | "ERROR"
     )
+
+    /**
+     * Saves the log and overwrites the a file exists
+     * @example KaiLogs.overwrite()
+     */
+    export function overwrite()
 }
 
 export = KaiLogs
