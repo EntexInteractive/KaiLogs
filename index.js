@@ -31,7 +31,7 @@ exports.debug = function (message, where) {
         where = "main";
     }
 
-    var logMessage = `[${GetTime()}] [${where}/DEBUG]: ${message}`;
+    var logMessage = `[${GetTime()}] [${where}/DBUG]: ${message}`;
     console.log(logMessage);
 
     fs.appendFile(filePath + "/latest.log", logMessage + "\n", function(err) {
@@ -143,7 +143,7 @@ exports.write = function (message, where, type) {
         throw new Error("[NO_MESSAGE]: message cannot be null");
     }
     if(type == undefined) {
-        type = "DEBUG";
+        type = "DBUG";
     }
     if(where == undefined) {
         where = "main";
