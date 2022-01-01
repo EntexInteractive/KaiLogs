@@ -1,13 +1,13 @@
 {
   "name": "kailogs",
-  "version": "2.0.0",
+  "version": "3.1.0",
   "description": "Logging library for Discord Applications",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test-logging.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/TheGuitarleader/KaiLogs/issues"
   },
-  "homepage": "https://github.com/TheGuitarleader/KaiLogs#readme"
+  "homepage": "https://github.com/TheGuitarleader/KaiLogs#readme",
+  "types": "./index.d.ts",
+  "dependencies": {
+    "npm": "^8.3.0"
+  }
 }
