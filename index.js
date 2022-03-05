@@ -25,27 +25,6 @@ exports.loadLog = function (path) {
     }
 }
 
-exports.debug = function (message, where) {
-    if(message == null || message == undefined) {
-        throw new Error("[NO_MESSAGE]: message cannot be null");
-    }
-    if(filePath == null || filePath == undefined) {
-        throw new Error("[NO_ACTIVE_LOG]: log file not found")
-    }
-    if(where == undefined) {
-        where = "main";
-    }
-
-    var logMessage = `[${GetTime()}] [${where}/DEBUG]: ${message}`;
-    console.log(logMessage);
-
-    fs.appendFile(filePath + "/latest.log", logMessage + "\n", function(err) {
-        if(err) {
-            throw new Error(err);
-        }
-    })
-}
-
 exports.deleteLog = function (path) {
     if(fs.existsSync(path)) {
         fs.unlinkSync(path);        
@@ -222,7 +201,7 @@ function GetTime()
     s = s < 10 ? "0" + s : s;
     h = h<10?"0"+h:h;
   
-    var date = `${h}:${m}:${s}${dd}`;
+    var time = `${h}:${m}:${s}${dd}`;
   
-    return date;
+    return time;
 }
