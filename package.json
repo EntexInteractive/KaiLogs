@@ -1,8 +1,8 @@
 {
   "name": "kailogs",
-  "version": "3.1.0",
+  "version": "4.1.0",
   "description": "Logging library for Discord Applications",
-  "main": "index.js",
+  "main": "./lib/kailogs.js",
   "directories": {
     "test": "tests"
   },
@@ -18,14 +18,11 @@
     "logging",
     "discord"
   ],
-  "author": "theguitarleader",
+  "author": "Enigma Software",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/TheGuitarleader/KaiLogs/issues"
   },
   "homepage": "https://github.com/TheGuitarleader/KaiLogs#readme",
-  "types": "./index.d.ts",
-  "dependencies": {
-    "npm": "^8.3.0"
-  }
+  "types": "./index.d.ts"
 }

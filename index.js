@@ -1,5 +1,6 @@
 const fs = require('fs');
 var path = require('path');
+const events = require('./lib/kailogs/events');
 let filePath = null;
 
 exports.createLog = function (path) {
@@ -23,27 +24,6 @@ exports.loadLog = function (path) {
         var create = fs.createWriteStream(filePath + "/latest.log");
         create.end();
     }
-}
-
-exports.debug = function (message, where) {
-    if(message == null || message == undefined) {
-        throw new Error("[NO_MESSAGE]: message cannot be null");
-    }
-    if(filePath == null || filePath == undefined) {
-        throw new Error("[NO_ACTIVE_LOG]: log file not found")
-    }
-    if(where == undefined) {
-        where = "main";
-    }
-
-    var logMessage = `[${GetTime()}] [${where}/DEBUG]: ${message}`;
-    console.log(logMessage);
-
-    fs.appendFile(filePath + "/latest.log", logMessage + "\n", function(err) {
-        if(err) {
-            throw new Error(err);
-        }
-    })
 }
 
 exports.deleteLog = function (path) {
@@ -222,7 +202,7 @@ function GetTime()
     s = s < 10 ? "0" + s : s;
     h = h<10?"0"+h:h;
   
-    var date = `${h}:${m}:${s}${dd}`;
+    var time = `${h}:${m}:${s}${dd}`;
   
-    return date;
+    return time;
 }
