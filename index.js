@@ -1,5 +1,6 @@
 const fs = require('fs');
 var path = require('path');
+const events = require('./lib/kailogs/events');
 let filePath = null;
 
 exports.createLog = function (path) {

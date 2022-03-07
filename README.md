@@ -45,6 +45,15 @@ KaiLogs has 6 logging levels. Each type of level has its own method.
 
 The `logger.message()` method is intended to log Discord messages for moderation purposes. Requires a [`channel.name`](https://discord.js.org/#/docs/discord.js/stable/class/Channel), [`user.username`](https://discord.js.org/#/docs/discord.js/stable/class/User), and [`message.content`](https://discord.js.org/#/docs/discord.js/stable/class/Message) class. 
 
+### Events
+
+As of KaiLogs@4.1.x, events will emit for each logging level.
+```javascript
+logger.on('error', (err) => {
+    // Emits every time 'logger.error()' is called.
+})
+```
+
 
 ## JavaScript Usage for KaiLogs@3.x.x
 
