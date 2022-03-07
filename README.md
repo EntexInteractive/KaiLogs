@@ -11,6 +11,9 @@ Into this:
 [11:44:55PM] [<location>/INFO]: Hey this needs to be logged!
 ```
 
+## Full documentation can be found [here](https://github.com/TheGuitarleader/KaiLogs/wiki)
+
+
 ## JavaScript Usage for KaiLogs@4.x.x+
 
 ### Create logger
